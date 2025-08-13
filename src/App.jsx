@@ -80,7 +80,7 @@ function App() {
     setGameMessage(`A wild ${pokemon.name} appeared!`)
   }
 
-  const catchPokemon = () => {
+  const catchPokemon = async () => {
     if (playerStats.pokeballs <= 0) {
       setGameMessage("You're out of Pokeballs!")
       return
@@ -99,6 +99,15 @@ function App() {
       })
       setGameMessage(`Gotcha! ${wildPokemon.name} was caught!`)
       setGameState('caught')
+      await fetch('/api/catch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          playerName: currentPlayerName,
+          pokemonName: caughtPokemonName
+        })
+      });
+
     } else {
       setPlayerStats({
         ...playerStats,
