@@ -103,7 +103,7 @@ function App() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          playerName: currentPlayerName,
+          playerName: "Darwin",
           pokemonName: caughtPokemonName
         })
       });
