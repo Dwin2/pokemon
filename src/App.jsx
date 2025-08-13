@@ -104,7 +104,7 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           playerName: "Darwin",
-          pokemonName: caughtPokemonName
+          pokemonName: wildPokemon.name
         })
       });
 
